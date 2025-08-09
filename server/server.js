@@ -23,11 +23,11 @@ const allowedOrigins = [
   "https://grocery-frontend-pi.vercel.app",
 ];
 
-app.post("/stripe", express.raw({ type: "application/json" }, stripeWebhooks));
 
 // MiddleWare Configuration
-app.use(express.json());
 app.use(cookieParser());
+app.post("/stripe", express.raw({ type: "application/json" }, stripeWebhooks));
+app.use(express.json());
 // app.use(cors({ origin: allowedOrgins, credentials: true }));
 app.use(
   cors({
